@@ -1,2 +1,2 @@
 # Download-Pauser
-a small chrome extension that auto pauses download
+this is a small google chrome exstension, it will automatically pause downloads when enabled and when disabled will check to see if their danger type is "safe" and if so will allow them to continue downloading
