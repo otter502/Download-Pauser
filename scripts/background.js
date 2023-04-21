@@ -1,3 +1,19 @@
+class storageClass{
+    constructor(key, type, data){
+        this.key = key;
+        this.type = type;
+        this.set(data);
+    }
+    
+    get(){
+        chrome.storage[this.type].get([this.key]);
+    }
+    set(value){
+        chrome.storage[this.type].set({[this.key]: value});
+    }
+}
+
+
 chrome.runtime.onInstalled.addListener(() => {
     chrome.storage.session.set({ "state" : true })
 });
@@ -7,7 +23,7 @@ chrome.action.onClicked.addListener(async (tab) => {
     let data = await chrome.storage.session.get(["state"]);
     currState = !data.state;
 
-    chrome.storage.session.set({ "state" : currState });
+    chrome.storage.session.set({ "state": currState });
 
     if (currState) {
         chrome.action.setIcon({
